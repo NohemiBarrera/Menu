@@ -2,12 +2,6 @@ import axios from 'axios';
 
 let filters = "";
 
-function getCookie(name) {
-  var re = new RegExp(name + "=([^;]+)");
-  var value = re.exec(document.cookie);
-  return value != null ? unescape(value[1]) : null;
-}
-
 const MenuAPI = {
 	getCategories: function(){
 		return axios.get("https://canastarosa.com/services/api/v1/market/categories/").then(res=>{
@@ -15,8 +9,9 @@ const MenuAPI = {
 		}).catch(err => console.log(err));
 	},
 
-	getProducts: function(){
-		return axios.get("https://canastarosa.com/services/api/v1/market/products/").then(res => {
+	getProducts: function(params){
+		(typeof params !== undefined) && (filters = params)
+		return axios.get("https://canastarosa.com/services/api/v1/market/products/" + params).then(res => {
 			return res
 		}).catch(err => console.log(err));
 	},
@@ -24,4 +19,3 @@ const MenuAPI = {
 }
 
 export default MenuAPI;
-export { getCookie };

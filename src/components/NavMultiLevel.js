@@ -27,14 +27,11 @@ class NavMultiLevel extends Component {
 			categories
 		} = this.state;
 
-console.log(this.state)
     const categoryItem = categories.map(category => (
       <Dropdown.Item key={category.slug}>
       	{category.name}	
 			</Dropdown.Item>
     ));
-
-		
 
 		return(
 		  <div>
@@ -43,9 +40,6 @@ console.log(this.state)
 		      <Dropdown title="Categorías">
 		      	{categoryItem}
 		      </Dropdown>
-		      <Nav.Item>
-		      	<Input style={{ width: 300 }} placeholder="Buscar Producto" size="xs" />
-		      </Nav.Item>
 		      <Nav.Item>
 		      	Market
 		      </Nav.Item>
