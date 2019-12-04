@@ -15,6 +15,12 @@ const MenuAPI = {
 		}).catch(err => console.log(err));
 	},
 
+	getProducts: function(){
+		return axios.get("https://canastarosa.com/services/api/v1/market/products/").then(res => {
+			return res
+		}).catch(err => console.log(err));
+	},
+
 }
 
 export default MenuAPI;
